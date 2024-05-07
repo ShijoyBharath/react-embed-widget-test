@@ -7,7 +7,7 @@ const widgetDivs = document.querySelectorAll('.roadmap-widget');
 
 const Roadmap = ({symbol}) => {
     return(
-        <div>Hello {symbol}</div>
+        <div className="bg-blue-300 rounded-lg p-5">Hello {symbol}</div>
     )
 }
 
