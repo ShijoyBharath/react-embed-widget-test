@@ -5,7 +5,6 @@ export default function Home() {
     <div>
       <div data-symbol="SYMBOL FROM THE EMBED DIV" className="roadmap-widget"></div>
       <Script src="roadmap.js"></Script>
-      <roadmap/>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 import {
   Card,
   CardContent,
@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import * as cssText from "bundle-text:@/app/globals.css";
 
 const Roadmap = ({ symbol }) => {
   return (
@@ -29,6 +30,19 @@ const Roadmap = ({ symbol }) => {
   );
 };
 
-const domNode = document.getElementsByClassName('roadmap-widget');
-const root = createRoot(domNode);
-root.render(<Roadmap symbol={domNode.dataset.symbol} />);
+let domNode = document.getElementsByClassName("roadmap-widget")[0];
+let symbol = domNode.dataset.symbol;
+domNode = domNode.attachShadow({ mode: "open" });
+
+// inject <style> tag
+let style = document.createElement("style");
+style.textContent = cssText;
+domNode.appendChild(style);
+
+// create the node for react component
+const reactNode = document.createElement("div");
+domNode.appendChild(reactNode);
+
+
+const root = createRoot(reactNode);
+root.render(<Roadmap symbol={symbol} />);
