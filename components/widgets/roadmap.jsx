@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 import {
   Card,
   CardContent,
@@ -8,9 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-// Find all widget divs
-const widgetDivs = document.querySelectorAll(".roadmap-widget");
 
 const Roadmap = ({ symbol }) => {
   return (
@@ -32,12 +29,6 @@ const Roadmap = ({ symbol }) => {
   );
 };
 
-// Inject our React App into each class
-widgetDivs.forEach((div) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Roadmap symbol={div.dataset.symbol} />
-    </React.StrictMode>,
-    div
-  );
-});
+const domNode = document.getElementsByClassName('roadmap-widget');
+const root = createRoot(domNode);
+root.render(<Roadmap symbol={domNode.dataset.symbol} />);
