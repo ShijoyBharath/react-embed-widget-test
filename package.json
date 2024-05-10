@@ -10,16 +10,21 @@
     "build:widget": "parcel build components/widgets/roadmap.jsx --no-source-maps --no-cache"
   },
   "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.0.4",
     "lucide-react": "^0.378.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^0.9.1"
   },
   "devDependencies": {
     "@parcel/transformer-inline-string": "^2.12.0",
@@ -32,6 +37,13 @@
   "alias": {
     "@/components/ui/card": "./components/ui/card",
     "@/components/ui/dialog": "./components/ui/dialog",
+    "@/components/ui/alert-dialog": "./components/ui/alert-dialog",
+    "@/components/ui/carousel": "./components/ui/carousel",
+    "@/components/ui/button": "./components/ui/button",
+    "@/components/ui/drawer": "./components/ui/drawer",
+    "@/components/ui/dropdown-menu": "./components/ui/dropdown-menu",
+    "@/components/ui/popover": "./components/ui/popover",
+    "@/components/ui/sheet": "./components/ui/sheet",
     "@/lib/utils": "./lib/utils",
     "@/app/globals.css": "./app/globals.css",
     "react": "preact/compat",
