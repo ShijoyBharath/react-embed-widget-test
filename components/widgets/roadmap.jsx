@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Card,
@@ -67,16 +67,64 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu";
+import { Toaster } from "@/components/ui/sonner"
+import { toast } from "sonner"
 
 import * as cssText from "bundle-text:@/app/globals.css";
 
 const Roadmap = ({ symbol }) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="bg-blue-300 rounded-lg p-5">
       Hello {symbol}
+      <Toaster />
+      <Button onClick={()=>toast("Event has been created.")}>Sonner</Button>
+      <Button
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        Open Custom Modal
+      </Button>
+      {open ? (
+        <div className="z-50 absolute">
+          <Card>
+            <CardHeader>
+              <CardTitle>Card Title 1</CardTitle>
+              <CardDescription>Card Description</CardDescription>
+              <Button
+                onClick={() => {
+                  setOpen(false);
+                }}
+              >
+                X
+              </Button>
+            </CardHeader>
+            <CardContent>
+              <p>Card Content</p>
+            </CardContent>
+            <CardFooter>
+              <p>Card Footer</p>
+            </CardFooter>
+          </Card>
+        </div>
+      ) : (
+        ""
+      )}
       <br />
       <Dialog>
-        <DialogTrigger>Open</DialogTrigger>
+        <DialogTrigger>Open Dialog</DialogTrigger>
         <DialogPortal>
           <DialogContent>
             <DialogHeader>
@@ -89,8 +137,9 @@ const Roadmap = ({ symbol }) => {
           </DialogContent>
         </DialogPortal>
       </Dialog>
+      <br />
       <AlertDialog>
-        <AlertDialogTrigger>Open</AlertDialogTrigger>
+        <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -144,7 +193,7 @@ const Roadmap = ({ symbol }) => {
       </div>
       <br />
       <Drawer>
-        <DrawerTrigger>Open</DrawerTrigger>
+        <DrawerTrigger>Ope Drawer</DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>Are you absolutely sure?</DrawerTitle>
@@ -160,7 +209,7 @@ const Roadmap = ({ symbol }) => {
       </Drawer>
       <br />
       <DropdownMenu>
-        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+        <DropdownMenuTrigger>Open Dropdown</DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
@@ -172,12 +221,12 @@ const Roadmap = ({ symbol }) => {
       </DropdownMenu>
       <br />
       <Popover>
-        <PopoverTrigger>Open</PopoverTrigger>
+        <PopoverTrigger>Open Popover</PopoverTrigger>
         <PopoverContent>Place content for the popover here.</PopoverContent>
       </Popover>
       <br />
       <Sheet>
-        <SheetTrigger>Open</SheetTrigger>
+        <SheetTrigger>Open Sheet</SheetTrigger>
         <SheetContent>
           <SheetHeader>
             <SheetTitle>Are you absolutely sure?</SheetTitle>
@@ -188,6 +237,17 @@ const Roadmap = ({ symbol }) => {
           </SheetHeader>
         </SheetContent>
       </Sheet>
+      <br />
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink>Link</NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
     </div>
   );
 };
