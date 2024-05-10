@@ -8,9 +8,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogPortal
+} from "@/components/ui/dialog";
 import * as cssText from "bundle-text:@/app/globals.css";
 
 const Roadmap = ({ symbol }) => {
+
   return (
     <div className="bg-blue-300 rounded-lg p-5">
       Hello {symbol}
@@ -26,6 +36,20 @@ const Roadmap = ({ symbol }) => {
           <p>Card Footer</p>
         </CardFooter>
       </Card>
+      <Dialog>
+        <DialogTrigger>Open</DialogTrigger>
+        <DialogPortal>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Are you absolutely sure?</DialogTitle>
+              <DialogDescription>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+          </DialogPortal>
+      </Dialog>
     </div>
   );
 };
